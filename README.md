@@ -11,25 +11,11 @@
 из этого репозитория.
 4. Установить и удалить deb-пакет с помощью dpkg.
 5. Выложить историю команд в терминале ubuntu
-6.
-7.  cat > "Home animals" <<EOL
-cat > "pack animals" <<EOL
-cat "Home animals" "pack animals" > "human friends"
-cat "human friends"
-mv "human friends" "Best human friends"
-mkdir "tset"
-mv "Best human friends" "test/"
-sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.17-1_all.deb
-sudo dpkg -i mysql-apt-config_0.8.17-1_all.deb
-sudo apt-get update
-sudo apt-get install mysql-server
-wget http://ftp.us.debian.org/debian/pool/main/s/sl/sl_5.02-1_amd64.deb
-sudo dpkg -i sl_5.02-1_amd64.deb
-sl
-sudo dpkg -r sl
+6.![terminal](https://github.com/user-attachments/assets/eef053f0-c793-415b-8e9f-2ee707cd66af)
 
 
-8. Нарисовать диаграмму, в которой есть класс родительский класс, домашние
+
+9. Нарисовать диаграмму, в которой есть класс родительский класс, домашние
 животные и вьючные животные, в составы которых в случае домашних
 животных войдут классы: собаки, кошки, хомяки, а в класс вьючные животные
 войдут: Лошади, верблюды и ослы).
