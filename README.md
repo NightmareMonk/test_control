@@ -11,6 +11,7 @@
 из этого репозитория.
 4. Установить и удалить deb-пакет с помощью dpkg.
 5. Выложить историю команд в терминале ubuntu
+
 6.![terminal](https://github.com/user-attachments/assets/eef053f0-c793-415b-8e9f-2ee707cd66af)
 
 
@@ -26,19 +27,69 @@
 
 10. В подключенном MySQL репозитории создать базу данных “Друзья
 человека”
-11. Создать таблицы с иерархией из диаграммы в БД
-12. Заполнить низкоуровневые таблицы именами(животных), командами
+
+CREATE DATABASE Human_friends;
+
+12. Создать таблицы с иерархией из диаграммы в БД
+13. USE Human_friends;
+CREATE TABLE animal_classes
+(
+	Id INT AUTO_INCREMENT PRIMARY KEY, 
+	Class_name VARCHAR(20)
+);
+
+INSERT INTO animal_classes (Class_name)
+VALUES ('вьючные'),
+('домашние');  
+
+
+CREATE TABLE packed_animals
+(
+	  Id INT AUTO_INCREMENT PRIMARY KEY,
+    Genus_name VARCHAR (20),
+    Class_id INT,
+    FOREIGN KEY (Class_id) REFERENCES animal_classes (Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+INSERT INTO packed_animals (Genus_name, Class_id)
+VALUES ('Лошади', 1),
+('Ослы', 1),  
+('Верблюды', 1); 
+    
+CREATE TABLE home_animals
+(
+	  Id INT AUTO_INCREMENT PRIMARY KEY,
+    Genus_name VARCHAR (20),
+    Class_id INT,
+    FOREIGN KEY (Class_id) REFERENCES animal_classes (Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+INSERT INTO home_animals (Genus_name, Class_id)
+VALUES ('Кошки', 2),
+('Собаки', 2),  
+('Хомяки', 2); 
+
+CREATE TABLE cats 
+(       
+    Id INT AUTO_INCREMENT PRIMARY KEY, 
+    Name VARCHAR(20), 
+    Birthday DATE,
+    Commands VARCHAR(50),
+    Genus_id int,
+    Foreign KEY (Genus_id) REFERENCES home_animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+14. Заполнить низкоуровневые таблицы именами(животных), командами
 которые они выполняют и датами рождения
-13. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
+15. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
 питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу.
 11.Создать новую таблицу “молодые животные” в которую попадут все
 животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью
 до месяца подсчитать возраст животных в новой таблице
-14. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на
+16. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на
 прошлую принадлежность к старым таблицам.
 13.Создать класс с Инкапсуляцией методов и наследованием по диаграмме.
-15. Написать программу, имитирующую работу реестра домашних животных.
-16. В программе должен быть реализован следующий функционал:
+17. Написать программу, имитирующую работу реестра домашних животных.
+18. В программе должен быть реализован следующий функционал:
 14.1 Завести новое животное
 14.2 определять животное в правильный класс
 14.3 увидеть список команд, которое выполняет животное
