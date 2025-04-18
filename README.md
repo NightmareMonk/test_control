@@ -31,65 +31,37 @@
 CREATE DATABASE Human_friends;
 
 12. Создать таблицы с иерархией из диаграммы в БД
-13. USE Human_friends;
-CREATE TABLE animal_classes
-(
-	Id INT AUTO_INCREMENT PRIMARY KEY, 
-	Class_name VARCHAR(20)
-);
+13. ![hierarchy](https://github.com/user-attachments/assets/021b6cb2-a14f-41fa-84eb-c908b53c0ae6)
 
-INSERT INTO animal_classes (Class_name)
-VALUES ('вьючные'),
-('домашние');  
-
-
-CREATE TABLE packed_animals
-(
-	  Id INT AUTO_INCREMENT PRIMARY KEY,
-    Genus_name VARCHAR (20),
-    Class_id INT,
-    FOREIGN KEY (Class_id) REFERENCES animal_classes (Id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-INSERT INTO packed_animals (Genus_name, Class_id)
-VALUES ('Лошади', 1),
-('Ослы', 1),  
-('Верблюды', 1); 
-    
-CREATE TABLE home_animals
-(
-	  Id INT AUTO_INCREMENT PRIMARY KEY,
-    Genus_name VARCHAR (20),
-    Class_id INT,
-    FOREIGN KEY (Class_id) REFERENCES animal_classes (Id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-INSERT INTO home_animals (Genus_name, Class_id)
-VALUES ('Кошки', 2),
-('Собаки', 2),  
-('Хомяки', 2); 
-
-CREATE TABLE cats 
-(       
-    Id INT AUTO_INCREMENT PRIMARY KEY, 
-    Name VARCHAR(20), 
-    Birthday DATE,
-    Commands VARCHAR(50),
-    Genus_id int,
-    Foreign KEY (Genus_id) REFERENCES home_animals (Id) ON DELETE CASCADE ON UPDATE CASCADE
-);
 14. Заполнить низкоуровневые таблицы именами(животных), командами
 которые они выполняют и датами рождения
-15. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
+
+![hierarchy_2](https://github.com/user-attachments/assets/468a3f0a-0705-4dba-a331-5c60a530df4a)
+
+![hierarchy_3](https://github.com/user-attachments/assets/3f01167e-62fc-4b6c-9127-a6aa0e61a5b9)
+
+
+16. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
 питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу.
+
+![delete](https://github.com/user-attachments/assets/1b30a921-1782-43ba-b231-889b1c2eb0ad)
+
 11.Создать новую таблицу “молодые животные” в которую попадут все
 животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью
 до месяца подсчитать возраст животных в новой таблице
-16. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на
+
+![yang](https://github.com/user-attachments/assets/ac8a9dd3-d045-4b57-bd56-2c558a74b44c)
+
+
+18. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на
 прошлую принадлежность к старым таблицам.
+
+![unite](https://github.com/user-attachments/assets/eb271493-ec06-4241-8678-669bf82a993f)
+
+
 13.Создать класс с Инкапсуляцией методов и наследованием по диаграмме.
-17. Написать программу, имитирующую работу реестра домашних животных.
-18. В программе должен быть реализован следующий функционал:
+20. Написать программу, имитирующую работу реестра домашних животных.
+21. В программе должен быть реализован следующий функционал:
 14.1 Завести новое животное
 14.2 определять животное в правильный класс
 14.3 увидеть список команд, которое выполняет животное
